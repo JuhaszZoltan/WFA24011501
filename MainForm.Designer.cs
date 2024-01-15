@@ -28,73 +28,132 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
-            comboBox1 = new ComboBox();
-            dataGridView1 = new DataGridView();
-            label1 = new Label();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            btnNewRent = new Button();
+            cbxType = new ComboBox();
+            dgvRents = new DataGridView();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
+            Column3 = new DataGridViewTextBoxColumn();
+            Column4 = new DataGridViewTextBoxColumn();
+            Column5 = new DataGridViewTextBoxColumn();
+            Column6 = new DataGridViewTextBoxColumn();
+            lblUI01 = new Label();
+            ((System.ComponentModel.ISupportInitialize)dgvRents).BeginInit();
             SuspendLayout();
             // 
-            // button1
+            // btnNewRent
             // 
-            button1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.ForeColor = Color.ForestGreen;
-            button1.Location = new Point(12, 9);
-            button1.Name = "button1";
-            button1.Size = new Size(448, 53);
-            button1.TabIndex = 0;
-            button1.Text = "ADD NEW RENT";
-            button1.UseVisualStyleBackColor = true;
+            btnNewRent.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            btnNewRent.ForeColor = Color.ForestGreen;
+            btnNewRent.Location = new Point(12, 22);
+            btnNewRent.Name = "btnNewRent";
+            btnNewRent.Size = new Size(448, 53);
+            btnNewRent.TabIndex = 0;
+            btnNewRent.Text = "ADD NEW RENT";
+            btnNewRent.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // cbxType
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(496, 33);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(264, 29);
-            comboBox1.TabIndex = 1;
+            cbxType.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbxType.FormattingEnabled = true;
+            cbxType.Location = new Point(496, 46);
+            cbxType.Name = "cbxType";
+            cbxType.Size = new Size(264, 29);
+            cbxType.TabIndex = 1;
             // 
-            // dataGridView1
+            // dgvRents
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 81);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(748, 325);
-            dataGridView1.TabIndex = 2;
+            dgvRents.AllowUserToAddRows = false;
+            dgvRents.AllowUserToDeleteRows = false;
+            dgvRents.AllowUserToResizeColumns = false;
+            dgvRents.AllowUserToResizeRows = false;
+            dgvRents.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvRents.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgvRents.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvRents.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column6 });
+            dgvRents.Location = new Point(12, 96);
+            dgvRents.Name = "dgvRents";
+            dgvRents.RowHeadersVisible = false;
+            dgvRents.RowTemplate.Height = 25;
+            dgvRents.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvRents.Size = new Size(748, 310);
+            dgvRents.TabIndex = 2;
             // 
-            // label1
+            // Column1
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(496, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(166, 21);
-            label1.TabIndex = 3;
-            label1.Text = "filter for this type only:";
+            Column1.FillWeight = 1F;
+            Column1.HeaderText = "Customer";
+            Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            Column2.FillWeight = 1F;
+            Column2.HeaderText = "koboldID";
+            Column2.Name = "Column2";
+            Column2.Visible = false;
+            // 
+            // Column3
+            // 
+            Column3.FillWeight = 3F;
+            Column3.HeaderText = "Bike";
+            Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            Column4.FillWeight = 2F;
+            Column4.HeaderText = "Start";
+            Column4.Name = "Column4";
+            // 
+            // Column5
+            // 
+            Column5.FillWeight = 2F;
+            Column5.HeaderText = "End";
+            Column5.Name = "Column5";
+            // 
+            // Column6
+            // 
+            Column6.FillWeight = 1F;
+            Column6.HeaderText = "Price";
+            Column6.Name = "Column6";
+            // 
+            // lblUI01
+            // 
+            lblUI01.AutoSize = true;
+            lblUI01.Location = new Point(496, 22);
+            lblUI01.Name = "lblUI01";
+            lblUI01.Size = new Size(166, 21);
+            lblUI01.TabIndex = 3;
+            lblUI01.Text = "filter for this type only:";
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(772, 418);
-            Controls.Add(label1);
-            Controls.Add(dataGridView1);
-            Controls.Add(comboBox1);
-            Controls.Add(button1);
+            Controls.Add(lblUI01);
+            Controls.Add(dgvRents);
+            Controls.Add(cbxType);
+            Controls.Add(btnNewRent);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             Margin = new Padding(4);
             Name = "MainForm";
             Text = "Kobold Bikers 2023";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvRents).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Button button1;
-        private ComboBox comboBox1;
-        private DataGridView dataGridView1;
-        private Label label1;
+        private Button btnNewRent;
+        private ComboBox cbxType;
+        private DataGridView dgvRents;
+        private Label lblUI01;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn Column3;
+        private DataGridViewTextBoxColumn Column4;
+        private DataGridViewTextBoxColumn Column5;
+        private DataGridViewTextBoxColumn Column6;
     }
 }
