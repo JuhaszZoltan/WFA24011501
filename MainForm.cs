@@ -14,11 +14,22 @@ namespace WFA24011501
             this.Load += MainForm_Load;
             this.Load += FillDgvRents;
             cbxType.SelectedIndexChanged += FillDgvRents;
+            btnNewRent.Click += BtnNewRent_Click;
+        }
+
+        private void BtnNewRent_Click(object? sender, EventArgs e)
+        {
+            _ = new RentalForm().ShowDialog();
+            FillDgvRents(null, null!);
         }
 
         private void MainForm_Load(object? sender, EventArgs e)
         {
-            
+            using SqlConnection connection = new(connectionString);
+            connection.Open();
+            var reader = new SqlCommand("SELECT name FROM types;", connection)
+                .ExecuteReader();
+            while (reader.Read()) cbxType.Items.Add(reader[0]);
         }
 
         private void FillDgvRents(object? sender, EventArgs e)
@@ -49,7 +60,7 @@ namespace WFA24011501
                 dgvRents.Rows.Add(
                     reader[0],
                     reader[1],
-                    $"{reader[2]} ({reader[3]}, {(reader.GetBoolean(4) ? "S" : "M")})",
+                    $"{reader[2]} ({reader[3]}, {(reader.GetBoolean(4) ? "M" : "S")})",
                     startDate.ToString("yyyy-MM-dd"),
                     startDate.AddDays(noDays).ToString("yyyy-MM-dd"),
                     $"{noDays * reader.GetInt32(7)} GP");
